@@ -1,0 +1,29 @@
+{
+  "name": "GameStore",
+  "version": "1.0.0",
+  "description": "Tutorial projects for learning ASP.NET Core",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ALX-Hien2k2/dotnet-game-store.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ALX-Hien2k2/dotnet-game-store/issues"
+  },
+  "homepage": "https://github.com/ALX-Hien2k2/dotnet-game-store#readme",
+  "devDependencies": {
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

@@ -1,5 +1,5 @@
 using GameStore.Api.Dtos;
-using GameStore.Api.Filters;
+using GameStore.Api.Middlewares.Filters;
 
 namespace GameStore.Api.Endpoints;
 
@@ -82,8 +82,7 @@ public static class GamesEndpoints
             games.Add(game);
 
             return Results.CreatedAtRoute(GetGameEndpointName, new { id = game.Id }, game);
-        })
-        .AddEndpointFilter<ValidationFilter<CreateGameDto>>();
+        }).AddEndpointFilter<ValidationFilter<CreateGameDto>>();
 
         // PUT /games/1
         group.MapPut("/{id}", (int id, UpdateGameDto updatedGame) =>
@@ -104,7 +103,7 @@ public static class GamesEndpoints
 
             return Results.NoContent();
             // return Results.Ok(games[index])
-        });
+        }).AddEndpointFilter<ValidationFilter<UpdateGameDto>>();
 
         // DELETE /games/1
         group.MapDelete("/{id}", (int id) =>

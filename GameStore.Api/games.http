@@ -8,8 +8,8 @@ POST http://localhost:5215/games
 Content-Type: application/json
 
 {
-    "name": 123,
-    "genre": "Fantasy",
+    "name": "Wuthering Waves",
+    //"genre": "Fantasy",
     "price": 19.99,
     "releaseDate": "2024-06-02"
 }

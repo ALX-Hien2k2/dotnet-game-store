@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace GameStore.Api.Filters;
+namespace GameStore.Api.Middlewares.Filters;
 
 public class ValidationFilter<T> : IEndpointFilter where T : class
 {

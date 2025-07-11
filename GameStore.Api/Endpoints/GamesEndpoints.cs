@@ -55,6 +55,7 @@ public static class GamesEndpoints
 
     public static RouteGroupBuilder MapGamesEndpoints(this WebApplication app)  // Extending class "WebApplication" -> Add method MapGamesEndpoints() to class "WebApplication"
     {
+        // var group = app.MapGroup("games").WithParameterValidation();
         var group = app.MapGroup("games");
 
         // GET /games
@@ -82,7 +83,9 @@ public static class GamesEndpoints
             games.Add(game);
 
             return Results.CreatedAtRoute(GetGameEndpointName, new { id = game.Id }, game);
-        }).AddEndpointFilter<ValidationFilter<CreateGameDto>>();
+        })
+        // .WithParameterValidation();
+        .AddEndpointFilter<ValidationFilter<CreateGameDto>>();
 
         // PUT /games/1
         group.MapPut("/{id}", (int id, UpdateGameDto updatedGame) =>
@@ -103,7 +106,9 @@ public static class GamesEndpoints
 
             return Results.NoContent();
             // return Results.Ok(games[index])
-        }).AddEndpointFilter<ValidationFilter<UpdateGameDto>>();
+        })
+        // .WithParameterValidation();
+        .AddEndpointFilter<ValidationFilter<UpdateGameDto>>();
 
         // DELETE /games/1
         group.MapDelete("/{id}", (int id) =>
